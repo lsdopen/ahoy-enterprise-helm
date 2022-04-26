@@ -1,3 +1,28 @@
 apiVersion: v1
-entries: {}
-generated: "2022-04-26T15:53:54.695098+02:00"
+entries:
+  ahoy:
+  - apiVersion: v2
+    appVersion: 0.0.1-SNAPSHOT
+    created: "2022-04-26T13:56:25.808042576Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.10.4
+    - condition: keycloak.install
+      name: keycloak
+      repository: https://codecentric.github.io/helm-charts
+      version: 15.1.0
+    - condition: argo-cd.install
+      name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 3.26.5
+    - condition: sealed-secrets.install
+      name: sealed-secrets
+      repository: https://bitnami-labs.github.io/sealed-secrets
+      version: 1.16.1
+    digest: d10c6211ba675cf5cbd3627a4969c43fa9d2f6ef0cb9b3a0c712fa91311ace8a
+    name: ahoy
+    urls:
+    - https://lsdopen.github.io/ahoy-enterprise-helm/ahoy-0.0.1-SNAPSHOT.tgz
+    version: 0.0.1-SNAPSHOT
+generated: "2022-04-26T13:56:25.783528257Z"
