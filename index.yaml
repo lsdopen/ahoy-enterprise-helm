@@ -28,7 +28,7 @@ entries:
   ahoy-enterprise:
   - apiVersion: v2
     appVersion: 0.0.1-SNAPSHOT
-    created: "2022-05-03T12:17:09.611118675Z"
+    created: "2022-05-03T12:54:09.225653946Z"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -45,9 +45,9 @@ entries:
       name: sealed-secrets
       repository: https://bitnami-labs.github.io/sealed-secrets
       version: 1.16.1
-    digest: c80b1bbddd480d936cf9c55f2a84169ef646d1b4358df1974e51f23d0cdc9661
+    digest: 6e884e2a9bf0a88c6b745d602df3d07e1e1e8fd959e1797cef4f42b58c853c10
     name: ahoy-enterprise
     urls:
     - https://lsdopen.github.io/ahoy-enterprise-helm/ahoy-enterprise-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2022-05-03T12:17:09.591382321Z"
+generated: "2022-05-03T12:54:09.205800224Z"
