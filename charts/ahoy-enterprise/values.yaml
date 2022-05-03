@@ -5,13 +5,13 @@ ahoy:
   image:
     repository: lsdtrip/ahoy-enterprise
     pullPolicy: Always
-    pullSecret: ""
+    pullSecret: "ahoy-enterprise-image-registry"
 
   auth:
     clientId: ahoy
     redirectUri: http://ahoy.minikube.host/
     issuer: https://keycloak.minikube.host/auth/realms/Ahoy
-    jwkSetUri: http://ahoy-keycloak-http.ahoy.svc/auth/realms/Ahoy/protocol/openid-connect/certs
+    jwkSetUri: http://ahoy-enterprise-keyc-http.ahoy-enterprise.svc/auth/realms/Ahoy/protocol/openid-connect/certs
     accountUri: https://keycloak.minikube.host/auth/realms/Ahoy/account/?referrer=ahoy
 
   env: ""
@@ -19,8 +19,8 @@ ahoy:
     #   value: prod,keycloak
 
   sealedSecrets:
-    controllerName: ahoy-sealed-secrets
-    controllerNamespace: ahoy
+    controllerName: ahoy-enterprise-sealed-secrets
+    controllerNamespace: ahoy-enterprise
 
 postgresql:
   enabled: true

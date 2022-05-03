@@ -6,13 +6,13 @@ ahoy:
   image:
     repository: lsdtrip/ahoy-enterprise
     pullPolicy: Always
-    pullSecret: ""
+    pullSecret: "ahoy-enterprise-image-registry"
 
   auth:
     clientId: ahoy
     redirectUri: https://ahoy.gke.host/
     issuer: https://keycloak.gke.host/auth/realms/Ahoy
-    jwkSetUri: http://ahoy-keycloak-http.ahoy.svc/auth/realms/Ahoy/protocol/openid-connect/certs
+    jwkSetUri: http://ahoy-enterprise-keyc-http.ahoy-enterprise.svc/auth/realms/Ahoy/protocol/openid-connect/certs
     accountUri: https://keycloak.gke.host/auth/realms/Ahoy/account/?referrer=ahoy
 
   env: ""
@@ -20,8 +20,8 @@ ahoy:
     #   value: prod,keycloak
 
   sealedSecrets:
-    controllerName: ahoy-sealed-secrets
-    controllerNamespace: ahoy
+    controllerName: ahoy-enterprise-sealed-secrets
+    controllerNamespace: ahoy-enterprise
 
 postgresql:
   enabled: true
@@ -98,13 +98,12 @@ keycloak:
     # The Service port targeted by the Ingress
     servicePort: http
     # Ingress annotations
-    annotations: {}
+    annotations: { }
     # Additional Ingress labels
-    labels: {}
+    labels: { }
     # List of rules for the Ingress
     rules:
-      -
-        # Ingress host
+      - # Ingress host
         host: 'keycloak.gke.host'
         # Paths for the host
         paths:
