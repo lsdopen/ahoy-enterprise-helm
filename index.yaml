@@ -25,4 +25,29 @@ entries:
     urls:
     - https://lsdopen.github.io/ahoy-enterprise-helm/ahoy-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2022-04-26T13:56:25.783528257Z"
+  ahoy-enterprise:
+  - apiVersion: v2
+    appVersion: 0.0.1-SNAPSHOT
+    created: "2022-05-03T12:17:09.611118675Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.10.4
+    - condition: keycloak.install
+      name: keycloak
+      repository: https://codecentric.github.io/helm-charts
+      version: 15.1.0
+    - condition: argo-cd.install
+      name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 3.26.5
+    - condition: sealed-secrets.install
+      name: sealed-secrets
+      repository: https://bitnami-labs.github.io/sealed-secrets
+      version: 1.16.1
+    digest: c80b1bbddd480d936cf9c55f2a84169ef646d1b4358df1974e51f23d0cdc9661
+    name: ahoy-enterprise
+    urls:
+    - https://lsdopen.github.io/ahoy-enterprise-helm/ahoy-enterprise-0.0.1-SNAPSHOT.tgz
+    version: 0.0.1-SNAPSHOT
+generated: "2022-05-03T12:17:09.591382321Z"
