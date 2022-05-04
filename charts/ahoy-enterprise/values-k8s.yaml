@@ -164,7 +164,7 @@ argo-cd:
           pathType: Prefix
           backend:
             service:
-              name: ahoy-argocd-server
+              name: ahoy-enterprise-argocd-server
               port:
                 number: 443
       tls:

@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ahoy-server
-  name: ahoy-server
+    app: {{ template "ahoy.name" . }}
+  name: {{ template "ahoy.server.fullname" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ahoy-server
+      app: {{ template "ahoy.name" . }}
   template:
     metadata:
       labels:
-        app: ahoy-server
+        app: {{ template "ahoy.name" . }}
     spec:
       {{- if .Values.ahoy.image.pullSecret }}
       imagePullSecrets:
@@ -52,7 +52,7 @@ spec:
       containers:
         - image: {{ .Values.ahoy.image.repository }}:{{ .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.ahoy.image.pullPolicy }}
-          name: ahoy-server
+          name: {{ template "ahoy.server.fullname" . }}
           env:
             {{- with .Values.ahoy.env }}
             {{- tpl . $ | nindent 12 }}

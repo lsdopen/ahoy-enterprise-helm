@@ -3,8 +3,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   labels:
-    app: ahoy-server
-  name: ahoy-server
+    app: {{ template "ahoy.name" . }}
+  name: {{ template "ahoy.server.fullname" . }}
 spec:
   {{ if .Values.ahoy.tlsSecret }}
   tls:
@@ -18,7 +18,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: ahoy-server
+                name: {{ template "ahoy.server.fullname" . }}
                 port:
                   number: 8080
   {{ end }}
