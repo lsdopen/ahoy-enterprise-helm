@@ -24,9 +24,8 @@ kubectl create secret docker-registry ahoy-enterprise-image-registry --namespace
 The name of the secret then needs to be updated in the values file:
 
 ```yaml
-ahoy:
-  image:
-    pullSecret: "ahoy-enterprise-image-registry"
+imagePullSecrets:
+  - name: ahoy-enterprise-image-registry
 ```
 
 ### Helm install

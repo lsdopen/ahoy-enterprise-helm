@@ -30,6 +30,42 @@ Create ahoy server name and version as used by the chart label.
 {{- end -}}
 
 {{/*
+Create chart name and version as used by the chart label.
+*/}}
+{{- define "ahoy.chart" -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Common labels
+*/}}
+{{- define "ahoy.labels" -}}
+helm.sh/chart: {{ include "ahoy.chart" . }}
+{{ include "ahoy.selectorLabels" . }}
+app.kubernetes.io/version: {{ .Values.image.tag | default .Chart.AppVersion | trunc 63 | quote }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
+{{/*
+Selector labels
+*/}}
+{{- define "ahoy.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "ahoy.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "ahoy.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "ahoy.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create a default fully qualified app name for the postgres requirement.
 */}}
 {{- define "ahoy.postgresql.fullname" -}}
