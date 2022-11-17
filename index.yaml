@@ -3,26 +3,37 @@ entries:
   ahoy-enterprise:
   - apiVersion: v2
     appVersion: 0.0.1-SNAPSHOT
-    created: "2022-05-04T13:54:55.905037262Z"
+    created: "2022-11-17T12:36:24.668822259Z"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
-      version: 8.10.4
+      version: 10.16.2
     - condition: keycloak.install
       name: keycloak
       repository: https://codecentric.github.io/helm-charts
-      version: 15.1.0
+      version: 17.0.3
     - condition: argo-cd.install
       name: argo-cd
       repository: https://argoproj.github.io/argo-helm
-      version: 3.26.5
+      version: 5.6.0
     - condition: sealed-secrets.install
       name: sealed-secrets
       repository: https://bitnami-labs.github.io/sealed-secrets
-      version: 1.16.1
-    digest: 7df392b2af3bbf1832bca9c586c0d1c9634fb5d3716aa904c82ba8bd85bc5681
+      version: 2.7.0
+    description: A Helm chart for Ahoy; release manager tool for Kubernetes
+    digest: 14532e5577af5315680db4fb8f0ffbf847fde132a69c98c411688c70c8be92d7
+    home: https://ahoyrm.io/
+    icon: https://ahoyrm.io/wp-content/uploads/2022/08/cropped-AHOY-Logos-Final-Transparent-03-192x192.png
+    keywords:
+    - ahoy
+    - ahoyrm
+    - releasemanager
+    - gitops
+    maintainers:
+    - name: lsdopen
+      url: https://lsdopen.io/
     name: ahoy-enterprise
     urls:
     - https://lsdopen.github.io/ahoy-enterprise-helm/ahoy-enterprise-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2022-05-04T13:54:55.884084834Z"
+generated: "2022-11-17T12:36:24.643183702Z"
