@@ -21,11 +21,12 @@ data:
     server.port=8080
     server.shutdown=graceful
 
+    spring.liquibase.enabled=true
     spring.datasource.url=jdbc:postgresql://{{ include "ahoy.postgresql.fullname" . }}/{{ .Values.postgresql.postgresqlDatabase }}
     spring.datasource.platform=postgres
     spring.datasource.username={{ .Values.postgresql.postgresqlUsername }}
     spring.datasource.password={{ .Values.postgresql.postgresqlPassword }}
     spring.datasource.driverClassName=org.postgresql.Driver
     spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL10Dialect
-    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.hibernate.ddl-auto=none
     spring.jpa.show-sql=false
