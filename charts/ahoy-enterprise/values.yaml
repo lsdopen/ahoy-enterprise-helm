@@ -1,6 +1,5 @@
 ahoy:
   host: ahoy.minikube.host
-  clusterType: kubernetes
 
   # The Ahoy OAuth 2 OIDC configuration; by default configured to use KeyCloak
   auth:
